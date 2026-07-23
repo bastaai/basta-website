@@ -12,6 +12,8 @@ export function BastaLogo({
   return (
     <svg
       viewBox="36 184 1080 277"
+      width={1080}
+      height={277}
       className={className}
       role="img"
       aria-label={title}
