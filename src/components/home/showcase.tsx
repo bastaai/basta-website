@@ -142,7 +142,7 @@ export function Showcase() {
       </div>
 
       {/* Trusted by — updates to the seller of the featured item */}
-      <div className="flex items-center justify-center gap-3 border-t border-muted/60 py-4">
+      <div className="flex items-center justify-center gap-3 py-4">
         <span className="font-mono text-[11px] uppercase tracking-wide text-ink">
           Trusted by:
         </span>
