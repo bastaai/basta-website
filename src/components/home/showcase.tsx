@@ -1,76 +1,46 @@
 import Image from "next/image";
+import { showcaseItems } from "@/lib/showcase";
 
-type Item = {
-  src: string;
-  alt: string;
-  box: string; // wrapper sizing
-  extra?: string; // rotation / offset / visibility
-};
-
-const items: Item[] = [
-  {
-    src: "/assets/products/dino.png",
-    alt: "Triceratops skeleton",
-    box: "w-56 h-40 md:w-72 md:h-52",
-    extra: "rotate-[6deg] sm:-ml-20",
-  },
-  {
-    src: "/assets/products/lamp.png",
-    alt: "Orange mushroom table lamp",
-    box: "w-32 h-32 md:w-44 md:h-44",
-    extra: "rotate-[-6deg] hidden sm:block",
-  },
-  {
-    src: "/assets/products/skateboard.png",
-    alt: "Tony Hawk skateboard",
-    box: "w-24 h-56 md:w-32 md:h-72",
-    extra: "rotate-[-10deg] z-10",
-  },
-  {
-    src: "/assets/products/artwork.png",
-    alt: "Framed artwork",
-    box: "w-32 h-44 md:w-44 md:h-56",
-    extra: "rotate-[4deg] hidden sm:block",
-  },
-  {
-    src: "/assets/products/coffee-maker.png",
-    alt: "Glass coffee maker",
-    box: "w-28 h-36 md:w-40 md:h-48",
-    extra: "rotate-[8deg] hidden md:block",
-  },
-  {
-    src: "/assets/products/dino.png",
-    alt: "Triceratops skeleton",
-    box: "w-56 h-40 md:w-72 md:h-52",
-    extra: "-mr-24 rotate-[-6deg] hidden lg:block",
-  },
-];
+// Slight per-item tilt for a playful, hand-placed feel.
+const tilts = ["-rotate-6", "rotate-3", "-rotate-3", "rotate-6", "rotate-2"];
 
 export function Showcase() {
+  // Duplicate the list so the marquee can loop seamlessly.
+  const loop = [...showcaseItems, ...showcaseItems];
+
   return (
     <section className="relative overflow-hidden border-b border-muted/60">
       <p className="pt-8 text-center text-sm font-semibold text-ink md:hidden">
         Items up for auction running on Basta:
       </p>
 
-      <div className="relative mx-auto flex h-[300px] max-w-[1200px] items-center justify-center gap-2 px-4 md:h-[420px] md:gap-6">
-        {items.map((item, i) => (
-          <div
-            key={i}
-            className={`relative shrink-0 ${item.box} ${item.extra ?? ""}`}
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              fill
-              sizes="(max-width: 768px) 40vw, 20vw"
-              className="object-contain drop-shadow-[0_20px_25px_rgba(0,0,0,0.12)]"
-            />
-          </div>
-        ))}
+      {/* Auto-scrolling carousel */}
+      <div className="relative py-10 md:py-14">
+        <div className="flex w-max animate-marquee items-center gap-10 [animation-play-state:running] hover:[animation-play-state:paused] md:gap-20">
+          {loop.map((item, i) => (
+            <a
+              key={i}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${item.alt} — view the sale`}
+              className={`group relative block size-32 shrink-0 transition-transform hover:!rotate-0 hover:scale-105 md:size-52 ${
+                tilts[i % tilts.length]
+              }`}
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 768px) 128px, 208px"
+                className="object-contain drop-shadow-[0_20px_25px_rgba(0,0,0,0.12)]"
+              />
+            </a>
+          ))}
+        </div>
 
-        {/* Just sold pill */}
-        <div className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2">
+        {/* Just sold pill overlay */}
+        <div className="pointer-events-none absolute bottom-4 left-1/2 z-20 -translate-x-1/2">
           <div className="flex items-center gap-2 rounded-full border border-black bg-white/90 py-1.5 pl-1.5 pr-4 backdrop-blur">
             <span className="relative size-7 overflow-hidden rounded-full bg-white">
               <Image
