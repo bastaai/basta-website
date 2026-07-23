@@ -15,7 +15,7 @@ const DUR = 500; // jump duration (ms)
 // The strip rides the rim of one big, mostly off-screen circle: each item
 // rotates and dips away from the centre the further it sits from the
 // active one, instead of a fixed per-item tilt.
-const WHEEL_RADIUS = 640; // px — bigger radius = gentler, wider curve
+const WHEEL_RADIUS = 800; // px — bigger radius = gentler, wider curve
 const ANGLE_STEP = 13; // degrees of arc between neighbouring items
 const MAX_STEPS = 4; // clamp the arc so far-off items don't flip past vertical
 
