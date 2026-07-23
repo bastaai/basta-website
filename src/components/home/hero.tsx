@@ -13,12 +13,13 @@ export function Hero() {
         Basta is an out of the box auctions platform made for anyone with
         something to auction. Launch easily in weeks, not months.
       </p>
-      <div className="mx-auto mt-8 flex max-w-md flex-col items-stretch justify-center gap-3 sm:flex-row">
-        <ButtonLink href={cta.talkToUs.href} variant="primary" className="sm:min-w-[220px]">
+      <div className="mt-8 flex justify-center">
+        <ButtonLink
+          href={cta.talkToUs.href}
+          variant="primary"
+          className="min-w-[240px]"
+        >
           Talk to us
-        </ButtonLink>
-        <ButtonLink href={cta.readDocs.href} variant="outline" className="sm:min-w-[220px]">
-          Read our docs
         </ButtonLink>
       </div>
     </section>
