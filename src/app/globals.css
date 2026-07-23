@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
+/*
+  Basta brand tokens.
+  Fonts: --font-sans / --font-mono are defined in layout.tsx via next/font.
+  Currently Inter (sans) + Space Mono (display) stand in for the brand's
+  commercial Maison Neue / Maison Neue Mono. Swap the next/font imports in
+  layout.tsx to change them everywhere.
+*/
+@theme {
+  --color-cream: #f4f4e9;
+  --color-acid: #daff00;
+  --color-ink: #212121;
+  --color-dark: #323232;
+  --color-muted: #adadad;
+  --color-pill: #11261e;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  --shadow-hard: -14px 15px 0px #000;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display type: the monospace headline treatment used across the site. */
+.font-display {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+/* Underline highlight (the yellow rotating word in the case-study header). */
+.mark-acid {
+  background: var(--color-acid);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Stepped 3D extrude for the giant BASTA wordmark (offset to bottom-left). */
+.extrude {
+  filter: drop-shadow(-2px 2px 0 #000) drop-shadow(-4px 4px 0 #000)
+    drop-shadow(-6px 6px 0 #000) drop-shadow(-8px 8px 0 #000)
+    drop-shadow(-10px 10px 0 #000) drop-shadow(-12px 12px 0 #000)
+    drop-shadow(-14px 14px 0 #000);
+}
+
+/* Infinite marquee for the "just sold" ticker. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }

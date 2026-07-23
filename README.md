@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Basta website
 
-## Getting Started
+Marketing site for [Basta](https://basta.app) — an out-of-the-box auctions platform.
+Built from the Figma design (front page + brand strategy).
 
-First, run the development server:
+- **Framework:** Next.js 16 (App Router) + React 19 + TypeScript
+- **Styling:** Tailwind CSS v4 (theme tokens in `src/app/globals.css`)
+- **Dev domain:** https://wtf.basta.app
+- **Deploys:** GitHub Actions → Vercel (preview per PR, production on `main`)
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev            # http://localhost:3000
+pnpm build          # production build + typecheck
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+  app/
+    layout.tsx            # fonts, metadata, header/footer shell
+    page.tsx              # home page (composes the sections below)
+    globals.css           # brand tokens + utilities (@theme)
+    <route>/page.tsx      # placeholder pages (generated — see below)
+  components/
+    site-header.tsx       # top bar, side rails, slide-in menu
+    site-footer.tsx       # footer nav + giant BASTA wordmark
+    basta-logo.tsx        # BASTA wordmark (inline SVG, from Figma 1:64)
+    placeholder.tsx       # shared "coming soon" page
+    ui/button-link.tsx    # pill button variants
+    home/                 # hero, stats-bar, showcase, case-study, dev-talk, get-started
+  lib/site.ts             # single source of truth for all nav links + CTAs
+public/assets/            # product photos, logos, brand imagery (exported from Figma)
+scripts/gen-placeholders.mjs  # regenerates placeholder pages from the link list
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Placeholder pages
 
-## Learn More
+Every link in the design has a real route so nothing 404s. They render a shared
+in-brand "coming soon" page. To add/change routes, edit the map in
+`scripts/gen-placeholders.mjs` and run:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+node scripts/gen-placeholders.mjs
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Fonts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The brand uses **Maison Neue** and **Maison Neue Mono**, which are commercial and
+not bundled here. We currently substitute **Inter** (body) and **Space Mono**
+(display) via `next/font` in `src/app/layout.tsx`. To use the licensed fonts,
+swap those two imports and update `--font-sans` / `--font-mono` in `globals.css` —
+nothing else needs to change.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pushes are deployed by `.github/workflows/deploy.yml` using the Vercel CLI.
+Required GitHub repository secrets:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Secret | Where to find it |
+| --- | --- |
+| `VERCEL_TOKEN` | Vercel → Account Settings → Tokens |
+| `VERCEL_ORG_ID` | `.vercel/project.json` after `vercel link` |
+| `VERCEL_PROJECT_ID` | `.vercel/project.json` after `vercel link` |
