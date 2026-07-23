@@ -75,7 +75,7 @@ export function Showcase() {
       </p>
 
       <div
-        className="relative pt-10 pb-12 md:pt-14 md:pb-14"
+        className="relative pt-10 pb-24 md:pt-14 md:pb-28"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
