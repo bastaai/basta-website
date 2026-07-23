@@ -9,11 +9,15 @@ const COPIES = 3;
 // Render three copies so there's always a full set of neighbours on each side.
 const strip = Array.from({ length: N * COPIES }, (_, i) => showcaseItems[i % N]);
 
-// Consistent per-item tilt, keyed to the item (not its position in the strip).
-const tilts = ["-rotate-6", "rotate-3", "-rotate-3", "rotate-6", "rotate-2"];
-
 const TICK = 2400; // dwell time on each item (ms)
 const DUR = 500; // jump duration (ms)
+
+// The strip rides the rim of one big, mostly off-screen circle: each item
+// rotates and dips away from the centre the further it sits from the
+// active one, instead of a fixed per-item tilt.
+const WHEEL_RADIUS = 640; // px — bigger radius = gentler, wider curve
+const ANGLE_STEP = 13; // degrees of arc between neighbouring items
+const MAX_STEPS = 4; // clamp the arc so far-off items don't flip past vertical
 
 export function Showcase() {
   const [active, setActive] = useState(N); // start in the middle copy
@@ -68,6 +72,10 @@ export function Showcase() {
     return () => cancelAnimationFrame(r);
   }, [animate]);
 
+  const transitionStyle = animate
+    ? `transform ${DUR}ms cubic-bezier(0.22, 1, 0.36, 1)`
+    : "none";
+
   return (
     <section className="relative overflow-hidden border-b border-muted/60">
       <p className="pt-8 text-center text-sm font-semibold text-ink md:hidden">
@@ -85,13 +93,24 @@ export function Showcase() {
             className="flex w-max items-center gap-10 md:gap-20"
             style={{
               transform: `translateX(${offset}px)`,
-              transition: animate
-                ? `transform ${DUR}ms cubic-bezier(0.22, 1, 0.36, 1)`
-                : "none",
+              transition: transitionStyle,
             }}
           >
             {strip.map((item, i) => {
               const isActive = i === active;
+              // Signed distance from the centred item, clamped so the arc
+              // never rotates a far-off item past vertical.
+              const steps = Math.max(
+                -MAX_STEPS,
+                Math.min(MAX_STEPS, i - active),
+              );
+              const theta = steps * ANGLE_STEP;
+              const rad = (theta * Math.PI) / 180;
+              // How far the item hangs below the top of the wheel, and how
+              // much it shrinks as it curves away — same rim, same circle.
+              const drop = WHEEL_RADIUS * (1 - Math.cos(rad));
+              const scale = isActive ? 1.1 : 0.95 - 0.06 * Math.abs(steps);
+
               return (
                 <a
                   key={i}
@@ -99,9 +118,13 @@ export function Showcase() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${item.name} — view the sale`}
-                  className={`relative block size-32 shrink-0 transition-transform duration-500 hover:!scale-110 md:size-52 ${
-                    tilts[i % N]
-                  } ${isActive ? "scale-110" : "scale-90 opacity-80"}`}
+                  className={`relative block size-32 shrink-0 md:size-52 ${
+                    isActive ? "opacity-100" : "opacity-80"
+                  }`}
+                  style={{
+                    transform: `translateY(${drop}px) rotate(${theta}deg) scale(${scale})`,
+                    transition: transitionStyle,
+                  }}
                 >
                   <Image
                     src={item.src}
