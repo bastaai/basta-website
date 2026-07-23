@@ -77,7 +77,7 @@ export function Showcase() {
     : "none";
 
   return (
-    <section className="relative overflow-hidden border-b border-muted/60">
+    <section className="relative overflow-x-hidden overflow-y-visible border-b border-muted/60">
       <p className="pt-8 text-center text-sm font-semibold text-ink md:hidden">
         Items up for auction running on Basta:
       </p>
@@ -87,7 +87,7 @@ export function Showcase() {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div ref={viewportRef} className="overflow-hidden">
+        <div ref={viewportRef} className="overflow-x-hidden overflow-y-visible">
           <div
             ref={trackRef}
             className="flex w-max items-center gap-10 md:gap-20"
