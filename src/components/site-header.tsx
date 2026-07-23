@@ -20,16 +20,16 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-muted/60 bg-cream/70 backdrop-blur-md">
-        <div className="relative flex h-[68px] items-center justify-between px-4 md:h-[76px]">
-          {/* Left rail — Book a demo (vertical on desktop) */}
-          <div className="flex w-24 items-center md:w-10">
-            <Link
-              href={cta.bookDemo.href}
-              className="hidden text-[11px] tracking-wide text-ink transition-opacity hover:opacity-60 md:block md:[writing-mode:vertical-rl] md:rotate-180"
-            >
+        <div className="relative flex h-16 items-stretch justify-between md:h-[92px]">
+          {/* Left rail — Book a demo (flush to edge, full height, divider on the right) */}
+          <Link
+            href={cta.bookDemo.href}
+            className="hidden w-10 shrink-0 items-center justify-center border-r border-muted/60 text-[11px] tracking-wide text-ink transition-opacity hover:opacity-60 md:flex"
+          >
+            <span className="rotate-180 whitespace-nowrap [writing-mode:vertical-rl]">
               BOOK A DEMO
-            </Link>
-          </div>
+            </span>
+          </Link>
 
           {/* Centered logo */}
           <Link
@@ -37,18 +37,20 @@ export function SiteHeader() {
             aria-label="Basta home"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <BastaLogo className="h-7 w-auto drop-shadow-[2px_2px_0_#000] md:h-8" />
+            <BastaLogo className="h-8 w-auto drop-shadow-[2px_2px_0_#000] md:h-10" />
           </Link>
 
-          {/* Right rail — Menu toggle */}
+          {/* Right rail — Menu (flush to edge, full height, divider on the left) */}
           <button
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="flex w-24 items-center justify-end gap-1 text-[11px] tracking-wide text-ink transition-opacity hover:opacity-60 md:w-10 md:flex-col md:justify-center md:gap-1"
+            className="flex w-12 shrink-0 flex-col items-center justify-center gap-1 border-l border-muted/60 text-[11px] tracking-wide text-ink transition-opacity hover:opacity-60 md:w-10"
           >
-            <Menu className="size-6 md:size-7" strokeWidth={1.75} />
-            <span className="md:[writing-mode:vertical-rl]">MENU</span>
+            <Menu className="size-5 md:size-6" strokeWidth={1.75} />
+            <span className="whitespace-nowrap [writing-mode:vertical-rl]">
+              MENU
+            </span>
           </button>
         </div>
       </header>
@@ -56,8 +58,8 @@ export function SiteHeader() {
       {/* Menu overlay */}
       {open && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-cream">
-          <div className="flex h-[68px] items-center justify-between border-b border-muted/60 px-4 md:h-[76px]">
-            <BastaLogo className="h-7 w-auto drop-shadow-[2px_2px_0_#000]" />
+          <div className="flex h-16 items-center justify-between border-b border-muted/60 px-4 md:h-[92px]">
+            <BastaLogo className="h-8 w-auto drop-shadow-[2px_2px_0_#000]" />
             <button
               type="button"
               onClick={() => setOpen(false)}
