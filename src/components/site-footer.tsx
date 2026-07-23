@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BastaLogo } from "@/components/basta-logo";
-import { footerNav } from "@/lib/site";
+import { footerNav, isExternal } from "@/lib/site";
 
 const wordmarkLabels = ["Buy", "and", "Sell", "through", "Auction"];
 
@@ -41,9 +41,12 @@ export function SiteFooter() {
               <h2 className="font-display mb-4 text-sm text-ink">{col.title}</h2>
               <ul className="space-y-2">
                 {col.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <Link
                       href={link.href}
+                      {...(isExternal(link.href)
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="text-sm text-ink/85 transition-colors hover:text-ink hover:underline"
                     >
                       {link.label}

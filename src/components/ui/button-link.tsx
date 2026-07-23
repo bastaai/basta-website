@@ -22,7 +22,17 @@ export function ButtonLink({
   className = "",
   ...props
 }: { variant?: Variant } & ComponentProps<typeof Link>) {
+  // Open external (http) links in a new tab.
+  const external =
+    typeof props.href === "string" && props.href.startsWith("http");
+  const externalProps = external
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
   return (
-    <Link className={`${base} ${variants[variant]} ${className}`} {...props} />
+    <Link
+      className={`${base} ${variants[variant]} ${className}`}
+      {...externalProps}
+      {...props}
+    />
   );
 }

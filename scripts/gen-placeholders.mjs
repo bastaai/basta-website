@@ -16,10 +16,8 @@ const pages = {
   "/product/cataloging": { title: "Cataloging", eyebrow: "Product" },
   "/product/live-auction": { title: "Live Auction", eyebrow: "Product" },
   "/product/marketplace": { title: "Marketplace", eyebrow: "Product" },
-  "/developers": { title: "Documentation", eyebrow: "Developers" },
-  "/developers/webhooks": { title: "Webhooks", eyebrow: "Developers" },
-  "/developers/api": { title: "API's", eyebrow: "Developers" },
-  "/developers/sdks": { title: "SDK's", eyebrow: "Developers" },
+  // Developer docs link out to https://docs.basta.app/ (see src/lib/site.ts),
+  // so no internal placeholder pages are generated for them.
   "/solutions/auction-houses": { title: "Auction Houses", eyebrow: "Solutions" },
   "/solutions/charities": { title: "Charities", eyebrow: "Solutions" },
   "/solutions/non-profits": { title: "Non-Profits", eyebrow: "Solutions" },

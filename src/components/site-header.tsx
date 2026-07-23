@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { BastaLogo } from "@/components/basta-logo";
-import { footerNav, cta } from "@/lib/site";
+import { footerNav, cta, isExternal } from "@/lib/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -77,10 +77,13 @@ export function SiteHeader() {
                 </h2>
                 <ul className="space-y-3">
                   {col.links.map((link) => (
-                    <li key={link.href}>
+                    <li key={link.label}>
                       <Link
                         href={link.href}
                         onClick={() => setOpen(false)}
+                        {...(isExternal(link.href)
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                         className="font-display text-2xl leading-tight transition-colors hover:text-acid hover:[-webkit-text-stroke:1px_#000] lg:text-3xl"
                       >
                         {link.label}
