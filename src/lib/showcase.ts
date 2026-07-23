@@ -1,37 +1,49 @@
-// Auto-scrolling carousel of items up for auction on the home page.
-// Update this list to change what shows: each entry needs an image, alt text,
-// and the URL of the sale it links to.
+// Items in the auto-jumping showcase carousel on the home page.
+// Update this list to change what shows: each entry needs an image, the item
+// name + sale price (shown in the "Just sold" pill), and the URL it links to.
 
 export type ShowcaseItem = {
   src: string; // path under /public
-  alt: string; // description / item name
+  name: string; // item name (shown in the pill)
+  price: string; // sale price (shown in the pill)
+  seller: string; // auction house selling it (shown in "Trusted by")
   href: string; // link to the item on sale
 };
 
 export const showcaseItems: ShowcaseItem[] = [
   {
     src: "/assets/products/dino.png",
-    alt: "Triceratops skeleton",
+    name: "Trey the Triceratops",
+    price: "$840,000",
+    seller: "Julien's",
     href: "https://juliensauctions.com",
   },
   {
     src: "/assets/products/lamp.png",
-    alt: "Orange mushroom table lamp",
+    name: "Flower Lamp",
+    price: "$250,000",
+    seller: "Joopiter",
     href: "https://juliensauctions.com",
   },
   {
     src: "/assets/products/skateboard.png",
-    alt: "Tony Hawk skateboard",
+    name: "Tony Hawk Skateboard",
+    price: "$1,152,000",
+    seller: "Julien's",
     href: "https://juliensauctions.com",
   },
   {
     src: "/assets/products/artwork.png",
-    alt: "Framed artwork",
+    name: "Josef Sima – Europa",
+    price: "$1,522,000",
+    seller: "Freeman's",
     href: "https://juliensauctions.com",
   },
   {
     src: "/assets/products/coffee-maker.png",
-    alt: "Glass coffee maker",
+    name: 'David Lynch "Mr Coffee" Coffeemaker',
+    price: "$4,550",
+    seller: "Julien's",
     href: "https://juliensauctions.com",
   },
 ];
