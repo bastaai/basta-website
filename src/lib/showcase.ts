@@ -23,7 +23,7 @@ export const showcaseItems: ShowcaseItem[] = [
     name: "Flower Lamp",
     price: "$250,000",
     seller: "Joopiter",
-    href: "https://juliensauctions.com",
+    href: "https://joopiter.com",
   },
   {
     src: "/assets/products/skateboard.png",
@@ -37,7 +37,7 @@ export const showcaseItems: ShowcaseItem[] = [
     name: "Josef Sima – Europa",
     price: "$1,522,000",
     seller: "Freeman's",
-    href: "https://juliensauctions.com",
+    href: "https://freemansauction.com",
   },
   {
     src: "/assets/products/coffee-maker.png",
