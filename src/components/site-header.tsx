@@ -20,11 +20,11 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-muted/60 bg-cream/70 backdrop-blur-md">
-        <div className="relative flex h-16 items-stretch justify-between md:h-[92px]">
+        <div className="relative flex h-[84px] items-stretch justify-between md:h-[92px]">
           {/* Left rail — Book a demo (flush to edge, full height, divider on the right) */}
           <Link
             href={cta.bookDemo.href}
-            className="hidden w-10 shrink-0 items-center justify-center border-r border-muted/60 text-[11px] tracking-wide text-ink transition-opacity hover:opacity-60 md:flex"
+            className="flex w-10 shrink-0 items-center justify-center border-r border-muted/60 text-[11px] tracking-wide text-ink transition-opacity hover:opacity-60"
           >
             <span className="rotate-180 whitespace-nowrap [writing-mode:vertical-rl]">
               BOOK A DEMO
@@ -58,7 +58,7 @@ export function SiteHeader() {
       {/* Menu overlay */}
       {open && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-cream">
-          <div className="flex h-16 items-center justify-between border-b border-muted/60 px-4 md:h-[92px]">
+          <div className="flex h-[84px] items-center justify-between border-b border-muted/60 px-4 md:h-[92px]">
             <BastaLogo className="h-8 w-auto drop-shadow-[2px_2px_0_#000]" />
             <button
               type="button"
