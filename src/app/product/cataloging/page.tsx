@@ -6,6 +6,7 @@ import {
   CapabilitySplit,
   CTABand,
 } from "@/components/marketing";
+import { ProductMock } from "@/components/mockups";
 
 export const metadata = {
   title: "Cataloging",
@@ -23,6 +24,8 @@ export default function CatalogingPage() {
         primary={{ label: "Book a demo", href: "/book-a-demo" }}
         secondary={{ label: "Read the docs", href: "https://docs.basta.app/" }}
       />
+
+      <ProductMock kind="cataloging" />
 
       <FeatureGrid
         eyebrow="Structure your sale"

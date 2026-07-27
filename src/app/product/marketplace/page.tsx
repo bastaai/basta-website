@@ -13,6 +13,7 @@ import {
   CapabilitySplit,
   CTABand,
 } from "@/components/marketing";
+import { ProductMock } from "@/components/mockups";
 
 export const metadata = {
   title: "Marketplace",
@@ -30,6 +31,8 @@ export default function MarketplacePage() {
         primary={{ label: "Book a demo", href: "/book-a-demo" }}
         secondary={{ label: "Read the docs", href: "https://docs.basta.app/" }}
       />
+
+      <ProductMock kind="marketplace" />
 
       <FeatureGrid
         eyebrow="Sell your way"
