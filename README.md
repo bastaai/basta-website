@@ -24,28 +24,26 @@ src/
     layout.tsx            # fonts, metadata, header/footer shell
     page.tsx              # home page (composes the sections below)
     globals.css           # brand tokens + utilities (@theme)
-    <route>/page.tsx      # placeholder pages (generated — see below)
+    about, customers, jobs, contact, book-a-demo, case-studies/…,
+    product/…, solutions/…   # marketing sub-pages (one page.tsx each)
   components/
     site-header.tsx       # top bar, side rails, slide-in menu
     site-footer.tsx       # footer nav + giant BASTA wordmark
     basta-logo.tsx        # BASTA wordmark (inline SVG, from Figma 1:64)
-    placeholder.tsx       # shared "coming soon" page
+    marketing.tsx         # shared sub-page sections (hero, feature grid, CTA, …)
+    demo-form.tsx         # contact / demo form (mailto)
     ui/button-link.tsx    # pill button variants
     home/                 # hero, stats-bar, showcase, case-study, dev-talk, get-started
   lib/site.ts             # single source of truth for all nav links + CTAs
 public/assets/            # product photos, logos, brand imagery (exported from Figma)
-scripts/gen-placeholders.mjs  # regenerates placeholder pages from the link list
 ```
 
-### Placeholder pages
+### Sub-pages
 
-Every link in the design has a real route so nothing 404s. They render a shared
-in-brand "coming soon" page. To add/change routes, edit the map in
-`scripts/gen-placeholders.mjs` and run:
-
-```bash
-node scripts/gen-placeholders.mjs
-```
+Every menu link resolves to a real, on-brand page built from the shared
+sections in `src/components/marketing.tsx`. Content was drawn from the brand
+strategy (voice), the developer docs (product facts), and the live site
+(positioning). Developer-docs links point out to `https://docs.basta.app/`.
 
 ## Fonts
 
