@@ -77,17 +77,18 @@ export function Showcase() {
     : "none";
 
   return (
-    <section className="relative overflow-x-hidden overflow-y-visible border-b border-muted/60">
+    <section className="relative overflow-x-clip border-b border-muted/60">
       <p className="pt-8 text-center text-sm font-semibold text-ink md:hidden">
         Items up for auction running on Basta:
       </p>
 
+      {/* Band clips the arc so the wheel can't scroll or spill onto other rows */}
       <div
-        className="relative pt-10 pb-[60px] md:pt-14 md:pb-[72px]"
+        className="relative overflow-hidden pt-10 pb-[60px] md:pt-14 md:pb-[72px]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div ref={viewportRef} className="overflow-x-hidden overflow-y-visible">
+        <div ref={viewportRef}>
           <div
             ref={trackRef}
             className="flex w-max items-center gap-10 md:gap-20"
