@@ -52,7 +52,7 @@ export default function CustomersPage() {
 
       <section className="border-b border-muted/60 px-6 py-14 text-center md:py-16">
         <p className="mx-auto max-w-2xl text-base text-ink/70">
-          Want to see how a house like yours would run on Basta?{" "}
+          Want to see how an auction house like yours would run on Basta?{" "}
           <Link href="/book-a-demo" className="font-semibold text-ink underline">
             Book a demo
           </Link>{" "}
