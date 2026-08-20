@@ -84,7 +84,7 @@ export function Showcase() {
 
       {/* Band clips the arc so the wheel can't scroll or spill onto other rows */}
       <div
-        className="relative overflow-hidden pt-10 pb-[60px] md:pt-14 md:pb-[72px]"
+        className="relative overflow-hidden pt-10 pb-[160px] md:pt-14 md:pb-[172px]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
