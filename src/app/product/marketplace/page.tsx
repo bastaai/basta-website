@@ -26,7 +26,7 @@ export default function MarketplacePage() {
     <PageFrame>
       <MarketingHero
         eyebrow="Product · Marketplace"
-        title="Your auction, your brand"
+        title="Your marketplace, your brand"
         lede="Launch a sleek, social-first auction destination in weeks — or embed auctions natively into the website, app, or store you already have. Enterprise-grade to embeddable, all on the same engine."
         primary={{ label: "Book a demo", href: "/book-a-demo" }}
         secondary={{ label: "Read the docs", href: "https://docs.basta.app/" }}
