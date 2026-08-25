@@ -55,11 +55,18 @@ nothing else needs to change.
 
 ## Deployment
 
-Pushes are deployed by `.github/workflows/deploy.yml` using the Vercel CLI.
-Required GitHub repository secrets:
+Deploys use Vercel's **native Git integration** — no GitHub Actions, no tokens
+to maintain. The `bastaai/basta-website` repo is connected to the Vercel project
+`basta-website` (team: Basta).
 
-| Secret | Where to find it |
-| --- | --- |
-| `VERCEL_TOKEN` | Vercel → Account Settings → Tokens |
-| `VERCEL_ORG_ID` | `.vercel/project.json` after `vercel link` |
-| `VERCEL_PROJECT_ID` | `.vercel/project.json` after `vercel link` |
+- Push / merge to `main` → **production** deploy (`basta-website.vercel.app`).
+- Any other branch or PR → automatic **preview** deploy.
+
+Branch protection limits pushes to `main` to the two maintainers, so only they
+can trigger a production deploy.
+
+**One-time connect** (Vercel dashboard): Project `basta-website` → Settings →
+Git → Connect Git Repository → `bastaai/basta-website` (install the Vercel GitHub
+App on the `bastaai` org if prompted). After connecting, the old
+`VERCEL_TOKEN` / `VERCEL_ORG_ID` / `VERCEL_PROJECT_ID` GitHub secrets are no
+longer used and can be deleted.
