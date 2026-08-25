@@ -28,7 +28,7 @@ export default function BuyNowPage() {
     <PageFrame>
       <MarketingHero
         eyebrow="Product · Buy Now"
-        title="Skip the bidding. Buy now."
+        title="Build your store. Buy now."
         lede="Not every buyer wants to wait for the hammer. Add a fixed buy-now price to any lot so a ready buyer can check out instantly — while everyone else keeps bidding."
         primary={{ label: "Book a demo", href: "/book-a-demo" }}
         secondary={{ label: "Read the docs", href: "https://docs.basta.app/" }}
