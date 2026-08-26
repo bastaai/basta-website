@@ -34,6 +34,7 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: "Online Auction", href: "/product/online-auction" },
       { label: "Quick Auctions", href: "/product/quick-auction" },
       { label: "Registration & Authentication", href: "/product/registration-authentication" },
+      { label: "Reporting & Data", href: "/product/reporting-data" },
     ],
   },
   {
