@@ -24,6 +24,7 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: "Bidding", href: "/product/bidding" },
       { label: "Buy Now", href: "/product/buy-now" },
       { label: "Cataloging", href: "/product/cataloging" },
+      { label: "Cataloging & Image Management", href: "/product/cataloging-image-management" },
       { label: "Dutch Auction", href: "/product/dutch-auction" },
       { label: "Live Auction", href: "/product/live-auction" },
       { label: "Marketplace", href: "/product/marketplace" },
