@@ -59,3 +59,24 @@ body {
     drop-shadow(-14px 14px 0 #000);
 }
 
+
+/* Homepage ticker-tape strip: two rows scroll opposite directions.
+   Each row renders its content twice and shifts by exactly half its
+   track width, so the loop repeats with no visible seam. */
+@keyframes ticker-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ticker-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

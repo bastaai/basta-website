@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/hero";
 import { StatsBar } from "@/components/home/stats-bar";
 import { Showcase } from "@/components/home/showcase";
+import { TickerTape } from "@/components/home/ticker-tape";
 import { CaseStudy } from "@/components/home/case-study";
 import { DevTalk } from "@/components/home/dev-talk";
 import { GetStarted } from "@/components/home/get-started";
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <StatsBar />
       <Showcase />
+      <TickerTape />
       <CaseStudy />
       <DevTalk />
       <GetStarted />
