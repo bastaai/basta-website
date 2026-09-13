@@ -26,7 +26,7 @@ export function CaseStudy() {
   const active = caseStudies[i];
 
   return (
-    <section className="grid gap-10 border-b border-muted/60 px-6 py-14 md:grid-cols-2 md:gap-12 md:px-12 md:py-20">
+    <section className="grid gap-10 px-6 py-14 md:grid-cols-2 md:gap-12 md:px-12 md:py-20">
       {/* Left: rotating headline */}
       <div className="flex flex-col items-center justify-center text-center">
         <h2 className="font-display text-2xl leading-[1.1] text-ink md:text-[29px]">
