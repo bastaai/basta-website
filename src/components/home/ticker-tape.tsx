@@ -35,7 +35,7 @@ function TickerRow({
 export function TickerTape() {
   return (
     <section
-      className="border-b border-muted/60 py-6 md:py-8"
+      className="py-6 md:py-8"
       aria-label="Full auction infrastructure. Webhook-native. Open data pipelines. Live registration. Unified bid streams. White-label by default. Headless engine. API-first."
     >
       <div className="flex flex-col gap-3 md:gap-4">
