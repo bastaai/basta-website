@@ -64,6 +64,5 @@ export const cta = {
   talkToUs: { label: "Talk to us", href: "/contact" },
   readDocs: { label: "Read our docs", href: "https://docs.basta.app/" },
   exploreApi: { label: "Explore our API's", href: "https://docs.basta.app/" },
-  caseStudy: { label: "Read the case study", href: "/case-studies/juliens" },
   bookDemo: { label: "Schedule a demo now", href: "/book-a-demo" },
 } as const;

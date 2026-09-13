@@ -21,7 +21,6 @@ export default function AuctionHousesPage() {
         title="Modern rails for established houses"
         lede="Built by auction insiders who were tired of broken tech. Move your online and live sales onto one modern engine — without the multi-year rebuild."
         primary={{ label: "Book a demo", href: "/book-a-demo" }}
-        secondary={{ label: "Read the Julien's story", href: "/case-studies/juliens" }}
       />
 
       <FeatureGrid

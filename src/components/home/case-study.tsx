@@ -1,33 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button-link";
 import { cta } from "@/lib/site";
 
 type CaseStudyItem = {
   category: string;
-  name?: string;
-  image?: string;
-  logo?: string;
-  logoAlt?: string;
-  description?: string;
 };
 
-// One entry per rotating category. Only "Auction house" has a real case
-// study today — the rest render the shared "coming soon" placeholder card
-// until we have a customer story to swap in.
+// One entry per rotating category. All currently render the shared
+// "coming soon" placeholder card until we have a customer story to swap in.
 const caseStudies: CaseStudyItem[] = [
-  {
-    category: "Auction house",
-    name: "Julien's Auctions",
-    image: "/assets/brand/julliens.jpg",
-    logo: "/assets/brand/julliens-logo.svg",
-    logoAlt: "Julien's Auctions",
-    description:
-      "Julien's Auctions integrated Basta as their auction engine for all bidding as well as their live auctions, achieving 150% increase in bidding volume and 30% adoption of new users within 12 months from launch.",
-  },
+  { category: "Auction house" },
   { category: "Website" },
   { category: "Marketplace" },
   { category: "Charity" },
@@ -82,38 +67,7 @@ export function CaseStudy() {
           ground up in no time.
         </p>
 
-        {active.name ? (
-          <div className="flex flex-col gap-5 sm:flex-row">
-            <div className="relative aspect-[3/2] w-full shrink-0 overflow-hidden rounded-lg sm:w-56">
-              <Image
-                src={active.image!}
-                alt={`${active.name} gallery`}
-                fill
-                sizes="(max-width: 640px) 100vw, 224px"
-                className="object-cover"
-              />
-              <Image
-                src={active.logo!}
-                alt={active.logoAlt!}
-                width={73}
-                height={19}
-                className="absolute left-1/2 top-1/2 w-16 -translate-x-1/2 -translate-y-1/2 brightness-0 invert"
-              />
-            </div>
-            <div className="flex flex-col justify-between gap-4">
-              <p className="text-sm leading-[1.4] text-ink/95">
-                {active.description}
-              </p>
-              <ButtonLink
-                href={cta.caseStudy.href}
-                variant="outline"
-                className="self-start"
-              >
-                Read the case study
-              </ButtonLink>
-            </div>
-          </div>
-        ) : (
+        {(
           <div key={i} className="flex flex-col gap-5 sm:flex-row">
             <div className="flex aspect-[3/2] w-full shrink-0 items-center justify-center rounded-lg border border-dashed border-muted/60 bg-muted/10 sm:w-56">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
