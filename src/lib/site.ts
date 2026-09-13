@@ -33,15 +33,6 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: "SDK's", href: "https://docs.basta.app/" },
     ],
   },
-  {
-    title: "Solutions",
-    links: [
-      { label: "Auction Houses", href: "/solutions/auction-houses" },
-      { label: "Charities", href: "/solutions/charities" },
-      { label: "Non-Profits", href: "/solutions/non-profits" },
-      { label: "Influencers", href: "/solutions/influencers" },
-    ],
-  },
 ];
 
 // Primary calls to action used across the home page.
