@@ -7,16 +7,28 @@ import { cta } from "@/lib/site";
 
 type CaseStudyItem = {
   category: string;
+  body: string;
 };
 
-// One entry per rotating category. All currently render the shared
-// "coming soon" placeholder card until we have a customer story to swap in.
+// Mirrors the 4 slides in Figma's "Solution carousel - additional slides" box.
+// Every slide's CTA points at the same Book a Demo page.
 const caseStudies: CaseStudyItem[] = [
-  { category: "Auction house" },
-  { category: "Website" },
-  { category: "Marketplace" },
-  { category: "Charity" },
-  { category: "Brand" },
+  {
+    category: "Auction house",
+    body: "We do live, timed, sealed-bid and hybrid auctions. We can replatform your auctions end to end, or put Basta behind the site you already run.",
+  },
+  {
+    category: "Brand",
+    body: "Your auction looks and sounds like you. It runs inside your own site, on your domain, and your site stays as it is, while Basta runs underneath.",
+  },
+  {
+    category: "Marketplace",
+    body: "On Basta, the same item can be bought outright or bid on, and you decide which. Auction doesn't have to be a separate event; sometimes it's the best way to find out what something is worth.",
+  },
+  {
+    category: "Charity",
+    body: "Benefit auctions are their own world, and we've spent a lot of time in it. Bidding should feel as good as the cause it's supporting.",
+  },
 ];
 
 export function CaseStudy() {
@@ -30,7 +42,7 @@ export function CaseStudy() {
       {/* Left: rotating headline */}
       <div className="flex flex-col items-center justify-center text-center">
         <h2 className="font-display text-2xl leading-[1.1] text-ink md:text-[29px]">
-          The auction platform for your
+          We work with your
         </h2>
         <span
           key={i}
@@ -59,36 +71,12 @@ export function CaseStudy() {
         </div>
       </div>
 
-      {/* Right: pitch + case study card */}
-      <div className="flex flex-col gap-6">
-        <p className="text-lg font-bold leading-[1.4] text-ink/95">
-          Built to power high-frequency bidding as well as live auctions Basta
-          can easily integrate with the rest of your existing stack or from the
-          ground up in no time.
-        </p>
-
-        {(
-          <div key={i} className="flex flex-col gap-5 sm:flex-row">
-            <div className="flex aspect-[3/2] w-full shrink-0 items-center justify-center rounded-lg border border-dashed border-muted/60 bg-muted/10 sm:w-56">
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
-                Coming soon
-              </span>
-            </div>
-            <div className="flex flex-col justify-between gap-4">
-              <p className="text-sm leading-[1.4] text-ink/70">
-                We&apos;re still building out our {active.category.toLowerCase()}{" "}
-                case study — check back shortly.
-              </p>
-              <ButtonLink
-                href={cta.talkToUs.href}
-                variant="outline"
-                className="self-start"
-              >
-                Talk to us
-              </ButtonLink>
-            </div>
-          </div>
-        )}
+      {/* Right: pitch + CTA */}
+      <div key={i} className="flex flex-col justify-center gap-6">
+        <p className="text-lg font-bold leading-[1.4] text-ink/95">{active.body}</p>
+        <ButtonLink href={cta.bookDemo.href} variant="outline" className="self-start">
+          Book a demo
+        </ButtonLink>
       </div>
     </section>
   );
