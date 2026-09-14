@@ -15,7 +15,7 @@ export const showcaseItems: ShowcaseItem[] = [
     src: "/assets/products/dino.png",
     name: "Trey the Triceratops",
     price: "$5,550,000",
-    seller: "Julien's",
+    seller: "Joopiter",
     href: "https://www.joopiter.com/stories/trey-the-triceratops",
   },
   {
