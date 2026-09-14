@@ -19,9 +19,9 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     title: "Developers",
     links: [
       { label: "Documentation", href: "https://docs.basta.app/" },
-      { label: "Webhooks", href: "https://docs.basta.app/" },
-      { label: "API's", href: "https://docs.basta.app/" },
-      { label: "SDK's", href: "https://docs.basta.app/" },
+      { label: "Webhooks", href: "https://docs.basta.app/webhooks" },
+      { label: "API's", href: "https://docs.basta.app/api-overview" },
+      { label: "SDK's", href: "https://docs.basta.app/sdks" },
     ],
   },
 ];

@@ -45,10 +45,10 @@ export default function AboutPage() {
               few.
             </p>
             <p>
-              Currently, there are more than 20 people at Basta, and growing.
-              With Gangverk, we are total around 180 engineers, designers and
-              product specialists behind us. That&apos;s a lot of brain
-              power. Bring it on.
+              Currently, there are more than 20 people at Basta, and
+              we&apos;re growing. With Gangverk, there are around 180
+              engineers, designers and product specialists behind us.
+              That&apos;s a lot of brain power. Bring it on.
             </p>
           </>
         }
