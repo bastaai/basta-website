@@ -19,7 +19,39 @@ export default function AboutPage() {
             <br className="hidden md:block" /> for modern auctions
           </>
         }
-        lede="Basta builds auction technology for anyone with something to auction. Before this, members of our team led Sotheby's digital transformation, and just couldn't stop there. So here we are. We see auction as a great way to find out what something is worth, so we're building modern auction infrastructure that works everywhere it makes sense. Infrastructure that used to take months or years to build — bidding, consigning, cataloguing, live rooms, marketplace, payments, settlement — we build in weeks, days, minutes. And every time we do, great things happen. Basta is majority-owned by Gangverk, a creative software agency that has built digital products for Sotheby's, Phillips, CBS Broadcasting, A+E Networks and Expeditions.com to name a few. Currently, there are more than 20 people at Basta, and growing. With Gangverk, we are total around 180 engineers, designers and product specialists behind us. That's a lot of brain power. Bring it on."
+        lede={
+          <>
+            <p>
+              Basta builds auction technology for anyone with something to
+              auction. Before this, members of our team led Sotheby&apos;s
+              digital transformation, and just couldn&apos;t stop there. So
+              here we are.
+            </p>
+            <p>
+              We see auction as a great way to find out what something is
+              worth, so we&apos;re building modern auction infrastructure
+              that works everywhere it makes sense.
+            </p>
+            <p>
+              Infrastructure that used to take months or years to build —
+              bidding, consigning, cataloguing, live rooms, marketplace,
+              payments, settlement — we build in weeks, days, minutes. And
+              every time we do, great things happen.
+            </p>
+            <p>
+              Basta is majority-owned by Gangverk, a creative software agency
+              that has built digital products for Sotheby&apos;s, Phillips,
+              CBS Broadcasting, A+E Networks and Expeditions.com to name a
+              few.
+            </p>
+            <p>
+              Currently, there are more than 20 people at Basta, and growing.
+              With Gangverk, we are total around 180 engineers, designers and
+              product specialists behind us. That&apos;s a lot of brain
+              power. Bring it on.
+            </p>
+          </>
+        }
       />
 
       <section className="border-b border-muted/60 px-6 py-14 md:px-12">

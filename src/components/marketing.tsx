@@ -20,7 +20,7 @@ export function MarketingHero({
 }: {
   eyebrow?: string;
   title: React.ReactNode;
-  lede?: string;
+  lede?: React.ReactNode;
   primary?: CTA;
   secondary?: CTA;
 }) {
@@ -35,9 +35,9 @@ export function MarketingHero({
         {title}
       </h1>
       {lede && (
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-[1.5] text-ink/80">
+        <div className="mx-auto mt-6 max-w-2xl space-y-4 text-lg leading-[1.5] text-ink/80">
           {lede}
-        </p>
+        </div>
       )}
       {(primary || secondary) && (
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
