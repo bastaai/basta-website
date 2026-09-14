@@ -74,7 +74,7 @@ export function CaseStudy() {
       {/* Right: pitch + CTA */}
       <div key={i} className="flex flex-col justify-center gap-6">
         <p className="text-lg font-bold leading-[1.4] text-ink/95">{active.body}</p>
-        <ButtonLink href={cta.bookDemo.href} variant="outline" className="self-start">
+        <ButtonLink href={cta.bookDemo.href} variant="outline" className="self-center md:self-start">
           Book a demo
         </ButtonLink>
       </div>
