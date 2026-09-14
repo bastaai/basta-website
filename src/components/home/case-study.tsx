@@ -40,7 +40,7 @@ export function CaseStudy() {
   return (
     <section className="grid gap-10 px-6 py-14 md:grid-cols-2 md:gap-12 md:px-12 md:py-20">
       {/* Left: rotating headline */}
-      <div className="flex flex-col items-center justify-center text-center">
+      <div className="flex flex-col items-center justify-center text-center md:justify-start">
         <h2 className="font-display text-2xl leading-[1.1] text-ink md:text-[29px]">
           We work with your
         </h2>
