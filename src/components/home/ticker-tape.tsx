@@ -41,9 +41,9 @@ export function TickerTape() {
       aria-label="Full auction infrastructure. Webhook-native. Open data pipelines. Live registration. Unified bid streams. White-label by default. Headless engine. API-first. Agentic chat reporting. LLM options. SEO/GEO optimisation. Server Side Rendering. MCP support."
     >
       <div className="flex flex-col gap-3 md:gap-4">
-        <TickerRow text={ROW_A} animationClass="animate-[ticker-left_22s_linear_infinite]" />
-        <TickerRow text={ROW_B} animationClass="animate-[ticker-right_30s_linear_infinite]" />
-        <TickerRow text={ROW_C} animationClass="animate-[ticker-left_26s_linear_infinite]" />
+        <TickerRow text={ROW_A} animationClass="animate-[ticker-left_19.8s_linear_infinite]" />
+        <TickerRow text={ROW_B} animationClass="animate-[ticker-right_27s_linear_infinite]" />
+        <TickerRow text={ROW_C} animationClass="animate-[ticker-left_23.4s_linear_infinite]" />
       </div>
     </section>
   );
