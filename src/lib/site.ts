@@ -13,7 +13,6 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
       { label: "About Us", href: "/about" },
       { label: "Book a Demo", href: "/book-a-demo" },
       { label: "Contact Us", href: "/contact" },
-      { label: "Jobs", href: "/jobs" },
     ],
   },
   {
