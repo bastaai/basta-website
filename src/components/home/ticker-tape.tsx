@@ -4,6 +4,8 @@
 const ROW_A = "Full auction infrastructure. Webhook-native. Open data pipelines.";
 const ROW_B =
   "Live registration. Unified bid streams. White-label by default. Headless engine. API-first.";
+const ROW_C =
+  "Agentic chat reporting. LLM options. SEO/GEO optimisation. Server Side Rendering. MCP support.";
 
 function TickerRow({
   text,
@@ -36,11 +38,12 @@ export function TickerTape() {
   return (
     <section
       className="py-6 md:py-8"
-      aria-label="Full auction infrastructure. Webhook-native. Open data pipelines. Live registration. Unified bid streams. White-label by default. Headless engine. API-first."
+      aria-label="Full auction infrastructure. Webhook-native. Open data pipelines. Live registration. Unified bid streams. White-label by default. Headless engine. API-first. Agentic chat reporting. LLM options. SEO/GEO optimisation. Server Side Rendering. MCP support."
     >
       <div className="flex flex-col gap-3 md:gap-4">
         <TickerRow text={ROW_A} animationClass="animate-[ticker-left_22s_linear_infinite]" />
         <TickerRow text={ROW_B} animationClass="animate-[ticker-right_30s_linear_infinite]" />
+        <TickerRow text={ROW_C} animationClass="animate-[ticker-left_26s_linear_infinite]" />
       </div>
     </section>
   );
