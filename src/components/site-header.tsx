@@ -37,7 +37,7 @@ export function SiteHeader() {
             aria-label="Basta home"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           >
-            <BastaLogo className="h-8 w-auto drop-shadow-[2px_2px_0_#000] md:h-10" />
+            <BastaLogo shadow className="h-10 w-auto md:h-12" />
           </Link>
 
           {/* Right rail — Menu (flush to edge, full height, divider on the left) */}
@@ -59,7 +59,7 @@ export function SiteHeader() {
       {open && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-cream">
           <div className="flex h-[84px] items-center justify-between border-b border-muted/60 px-4 md:h-[92px]">
-            <BastaLogo className="h-8 w-auto drop-shadow-[2px_2px_0_#000]" />
+            <BastaLogo shadow className="h-8 w-auto" />
             <button
               type="button"
               onClick={() => setOpen(false)}
