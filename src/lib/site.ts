@@ -16,14 +16,6 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     ],
   },
   {
-    title: "Product",
-    links: [
-      { label: "Live Auction", href: "/product/live-auction" },
-      { label: "Online Auction", href: "/product/online-auction" },
-      { label: "Buy Now", href: "/product/buy-now" },
-    ],
-  },
-  {
     title: "Developers",
     links: [
       { label: "Documentation", href: "https://docs.basta.app/" },
