@@ -78,10 +78,6 @@ export function Showcase() {
 
   return (
     <section className="relative overflow-x-clip border-b border-muted/60">
-      <p className="pt-8 text-center text-sm font-semibold text-ink md:hidden">
-        Items up for auction running on Basta:
-      </p>
-
       {/* Band clips the arc so the wheel can't scroll or spill onto other rows */}
       <div
         className="relative overflow-hidden pt-10 pb-[160px] md:pt-14 md:pb-[172px]"
