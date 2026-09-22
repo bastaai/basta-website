@@ -8,7 +8,7 @@ export function Hero() {
         We power auction
       </h1>
       <p className="mx-auto mt-6 max-w-[482px] text-base leading-[1.4] text-ink/95">
-        Basta is an out of the box Auction Management System made for anyone
+        Basta is an out of the box auction infrastructure made for anyone
         with something to auction.
       </p>
       <div className="mt-8 flex justify-center">
