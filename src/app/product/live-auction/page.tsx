@@ -9,7 +9,7 @@ import {
   CreditCard,
 } from "lucide-react";
 import { PageFrame, MarketingHero, FeatureGrid, CTABand } from "@/components/marketing";
-import { ProductMock } from "@/components/mockups";
+import { LiveAuctionCarousel } from "@/components/mockups";
 
 export const metadata = {
   title: "Live Auction",
@@ -28,7 +28,7 @@ export default function LiveAuctionPage() {
         secondary={{ label: "Read the docs", href: "https://docs.basta.app/" }}
       />
 
-      <ProductMock kind="live" />
+      <LiveAuctionCarousel />
 
       <FeatureGrid
         eyebrow="In the room"
