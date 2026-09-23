@@ -54,9 +54,9 @@ export function ProductMock({
   );
 }
 
-// Same live-room mockup, presented in the labeled "desktop view" carousel
+// Real product screenshot, presented in the labeled "desktop view" carousel
 // chrome from the Figma reference (eyebrow label above, view switcher below).
-// Only one illustrative view exists today, so the prev/next controls are
+// Only one real screenshot exists today, so the prev/next controls are
 // omitted rather than faked — add real slides + pager once more views ship.
 export function LiveAuctionCarousel() {
   return (
@@ -64,7 +64,16 @@ export function LiveAuctionCarousel() {
       <p className="font-mono mb-8 text-center text-xs uppercase tracking-[0.2em] text-muted">
         Desktop view
       </p>
-      <LiveAuctionMock />
+      <div className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border-2 border-black bg-white shadow-[-10px_12px_0_0_#000]">
+        <Image
+          src="/assets/products/live-auction-desktop.jpg"
+          alt="Basta live auction room, desktop view"
+          width={947}
+          height={612}
+          sizes="(min-width: 768px) 768px, 100vw"
+          className="h-auto w-full"
+        />
+      </div>
     </section>
   );
 }
