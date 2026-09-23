@@ -208,7 +208,7 @@ export function Statement({
 // Closing call to action, echoing the home page's big yellow button.
 export function CTABand({
   title = "Get started",
-  sub = "Book a demo today and see what's possible.",
+  sub,
   cta = { label: "Schedule a demo now", href: "/book-a-demo" },
 }: {
   title?: string;
@@ -218,7 +218,7 @@ export function CTABand({
   return (
     <section className="px-6 py-16 text-center md:py-20">
       <h2 className="font-display text-3xl text-ink md:text-5xl">{title}</h2>
-      <p className="mt-4 text-sm text-ink/95">{sub}</p>
+      {sub && <p className="mt-4 text-sm text-ink/95">{sub}</p>}
       <div className="mx-auto mt-10 max-w-[1317px]">
         <Link
           href={cta.href}
