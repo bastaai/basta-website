@@ -4,6 +4,7 @@ import { Showcase } from "@/components/home/showcase";
 import { CaseStudy } from "@/components/home/case-study";
 import { TickerTape } from "@/components/home/ticker-tape";
 import { DevTalk } from "@/components/home/dev-talk";
+import { PoweringFor } from "@/components/home/powering-for";
 import { GetStarted } from "@/components/home/get-started";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <CaseStudy />
       <TickerTape />
       <DevTalk />
+      <PoweringFor />
       <GetStarted />
     </div>
   );
