@@ -54,6 +54,21 @@ export function ProductMock({
   );
 }
 
+// Same live-room mockup, presented in the labeled "desktop view" carousel
+// chrome from the Figma reference (eyebrow label above, view switcher below).
+// Only one illustrative view exists today, so the prev/next controls are
+// omitted rather than faked — add real slides + pager once more views ship.
+export function LiveAuctionCarousel() {
+  return (
+    <section className="border-b border-muted/60 px-6 py-14 md:py-20">
+      <p className="font-mono mb-8 text-center text-xs uppercase tracking-[0.2em] text-muted">
+        Desktop view
+      </p>
+      <LiveAuctionMock />
+    </section>
+  );
+}
+
 function BiddingMock() {
   return (
     <AppWindow label="basta · bidding">
