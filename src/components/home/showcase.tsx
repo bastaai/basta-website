@@ -160,19 +160,6 @@ export function Showcase() {
           </div>
         </div>
       </div>
-
-      {/* Trusted by — updates to the seller of the featured item */}
-      <div className="flex items-center justify-center gap-3 py-4">
-        <span className="font-mono text-[11px] uppercase tracking-wide text-ink">
-          Trusted by:
-        </span>
-        <span
-          key={featured.seller}
-          className="font-display text-sm text-ink"
-        >
-          {featured.seller}
-        </span>
-      </div>
     </section>
   );
 }
