@@ -127,8 +127,8 @@ export function LiveAuctionCarousel() {
           alt={`Basta live auction room, ${active.label}`}
           width={active.width}
           height={active.height}
-          sizes="(min-width: 768px) 768px, 100vw"
-          className="h-auto w-full max-w-3xl"
+          sizes="610px"
+          className="h-[280px] w-auto max-w-full sm:h-[420px] md:h-[610px]"
         />
       </div>
       <div className="mt-6 flex items-center justify-center gap-4">
