@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -15,7 +15,7 @@ function AppWindow({
   children,
 }: {
   label: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <div className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border-2 border-black bg-white shadow-[-10px_12px_0_0_#000]">
@@ -62,11 +62,14 @@ export function ProductMock({
 // chrome from the Figma reference (eyebrow label above, prev/next + pager
 // below). Screenshot images are shown at their raw intrinsic size — no
 // card chrome (border/radius/shadow) per the Figma design.
+type DeviceKind = "laptop" | "tablet" | "phone";
+
 type CarouselSlide = {
   src: string;
   label: string;
   width: number;
   height: number;
+  device: DeviceKind;
 };
 
 const liveAuctionSlides: CarouselSlide[] = [
@@ -75,38 +78,94 @@ const liveAuctionSlides: CarouselSlide[] = [
     label: "desktop view",
     width: 945,
     height: 610,
+    device: "laptop",
   },
   {
     src: "/assets/products/live-auction-tablet.jpg",
     label: "tablet view",
     width: 457,
     height: 610,
+    device: "tablet",
   },
   {
     src: "/assets/products/live-auction-mobile-1.jpg",
     label: "mobile view",
     width: 274,
     height: 610,
+    device: "phone",
   },
   {
     src: "/assets/products/live-auction-mobile-2.jpg",
     label: "mobile view",
     width: 274,
     height: 610,
+    device: "phone",
   },
   {
     src: "/assets/products/live-auction-mobile-3.jpg",
     label: "mobile view",
     width: 275,
     height: 609,
+    device: "phone",
   },
   {
     src: "/assets/products/live-auction-mobile-4.jpg",
     label: "mobile view",
     width: 275,
     height: 610,
+    device: "phone",
   },
 ];
+
+// Simple CSS-only device chrome — a screen bezel that wraps the raw
+// screenshot so it reads as a laptop / tablet / phone in the carousel.
+function LaptopFrame({ children }: { children: ReactNode }) {
+  return (
+    <div className="inline-block">
+      <div className="rounded-t-xl border-[10px] border-b-0 border-ink bg-ink p-1">
+        <div className="relative overflow-hidden rounded-sm bg-ink">
+          {children}
+        </div>
+      </div>
+      <div className="relative h-3 rounded-b-xl bg-ink">
+        <span className="absolute left-1/2 top-0.5 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-ink/40" />
+      </div>
+      <div className="mx-auto h-1.5 w-1/4 rounded-b-md bg-ink/80" />
+    </div>
+  );
+}
+
+function TabletFrame({ children }: { children: ReactNode }) {
+  return (
+    <div className="relative inline-block rounded-[2rem] border-[14px] border-ink bg-ink p-1">
+      <span className="absolute left-1/2 top-1 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-ink/40" />
+      <div className="overflow-hidden rounded-lg bg-ink">{children}</div>
+    </div>
+  );
+}
+
+function PhoneFrame({ children }: { children: ReactNode }) {
+  return (
+    <div className="relative inline-block rounded-[2.5rem] border-[10px] border-ink bg-ink p-1">
+      <span className="absolute left-1/2 top-1 z-10 h-5 w-24 -translate-x-1/2 rounded-b-xl bg-ink" />
+      <div className="overflow-hidden rounded-[1.75rem] bg-ink">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function DeviceFrame({
+  device,
+  children,
+}: {
+  device: DeviceKind;
+  children: ReactNode;
+}) {
+  if (device === "laptop") return <LaptopFrame>{children}</LaptopFrame>;
+  if (device === "tablet") return <TabletFrame>{children}</TabletFrame>;
+  return <PhoneFrame>{children}</PhoneFrame>;
+}
 
 export function LiveAuctionCarousel() {
   const [i, setI] = useState(0);
@@ -120,16 +179,20 @@ export function LiveAuctionCarousel() {
       <p className="font-mono mb-8 text-center text-xs uppercase tracking-[0.2em] text-muted">
         {active.label}
       </p>
-      <div className="mx-auto flex justify-center">
-        <Image
-          key={active.src}
-          src={active.src}
-          alt={`Basta live auction room, ${active.label}`}
-          width={active.width}
-          height={active.height}
-          sizes="610px"
-          className="h-[280px] w-auto max-w-full sm:h-[420px] md:h-[610px]"
-        />
+      <div className="mx-auto flex justify-center overflow-visible py-10 md:py-16">
+        <div className="-rotate-45">
+          <DeviceFrame device={active.device}>
+            <Image
+              key={active.src}
+              src={active.src}
+              alt={`Basta live auction room, ${active.label}`}
+              width={active.width}
+              height={active.height}
+              sizes="610px"
+              className="h-[200px] w-auto max-w-full sm:h-[300px] md:h-[440px]"
+            />
+          </DeviceFrame>
+        </div>
       </div>
       <div className="mt-6 flex items-center justify-center gap-4">
         <button
