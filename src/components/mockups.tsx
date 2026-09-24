@@ -79,32 +79,32 @@ const liveAuctionSlides: CarouselSlide[] = [
   {
     src: "/assets/products/live-auction-tablet.jpg",
     label: "tablet view",
-    width: 110,
-    height: 147,
+    width: 457,
+    height: 610,
   },
   {
     src: "/assets/products/live-auction-mobile-1.jpg",
     label: "mobile view",
-    width: 95,
-    height: 198,
+    width: 274,
+    height: 610,
   },
   {
     src: "/assets/products/live-auction-mobile-2.jpg",
     label: "mobile view",
-    width: 95,
-    height: 198,
+    width: 274,
+    height: 610,
   },
   {
     src: "/assets/products/live-auction-mobile-3.jpg",
     label: "mobile view",
-    width: 45,
-    height: 100,
+    width: 275,
+    height: 609,
   },
   {
     src: "/assets/products/live-auction-mobile-4.jpg",
     label: "mobile view",
-    width: 45,
-    height: 100,
+    width: 275,
+    height: 610,
   },
 ];
 
