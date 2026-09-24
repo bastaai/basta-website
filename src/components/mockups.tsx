@@ -179,20 +179,18 @@ export function LiveAuctionCarousel() {
       <p className="font-mono mb-8 text-center text-xs uppercase tracking-[0.2em] text-muted">
         {active.label}
       </p>
-      <div className="mx-auto flex justify-center overflow-visible py-10 md:py-16">
-        <div className="-rotate-45">
-          <DeviceFrame device={active.device}>
-            <Image
-              key={active.src}
-              src={active.src}
-              alt={`Basta live auction room, ${active.label}`}
-              width={active.width}
-              height={active.height}
-              sizes="610px"
-              className="h-[200px] w-auto max-w-full sm:h-[300px] md:h-[440px]"
-            />
-          </DeviceFrame>
-        </div>
+      <div className="mx-auto flex justify-center">
+        <DeviceFrame device={active.device}>
+          <Image
+            key={active.src}
+            src={active.src}
+            alt={`Basta live auction room, ${active.label}`}
+            width={active.width}
+            height={active.height}
+            sizes="610px"
+            className="h-[280px] w-auto max-w-full sm:h-[420px] md:h-[610px]"
+          />
+        </DeviceFrame>
       </div>
       <div className="mt-6 flex items-center justify-center gap-4">
         <button
