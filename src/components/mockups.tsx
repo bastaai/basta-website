@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 /*
   Illustrative product visuals (not literal app screenshots) — stylized
@@ -54,25 +58,97 @@ export function ProductMock({
   );
 }
 
-// Real product screenshot, presented in the labeled "desktop view" carousel
-// chrome from the Figma reference (eyebrow label above, view switcher below).
-// Only one real screenshot exists today, so the prev/next controls are
-// omitted rather than faked — add real slides + pager once more views ship.
+// Real product screenshots, presented in the labeled "N view" carousel
+// chrome from the Figma reference (eyebrow label above, prev/next + pager
+// below). Screenshot images are shown at their raw intrinsic size — no
+// card chrome (border/radius/shadow) per the Figma design.
+type CarouselSlide = {
+  src: string;
+  label: string;
+  width: number;
+  height: number;
+};
+
+const liveAuctionSlides: CarouselSlide[] = [
+  {
+    src: "/assets/products/live-auction-desktop.jpg",
+    label: "desktop view",
+    width: 250,
+    height: 162,
+  },
+  {
+    src: "/assets/products/live-auction-tablet.jpg",
+    label: "tablet view",
+    width: 50,
+    height: 67,
+  },
+  {
+    src: "/assets/products/live-auction-mobile-1.jpg",
+    label: "mobile view",
+    width: 45,
+    height: 94,
+  },
+  {
+    src: "/assets/products/live-auction-mobile-2.jpg",
+    label: "mobile view",
+    width: 45,
+    height: 94,
+  },
+  {
+    src: "/assets/products/live-auction-mobile-3.jpg",
+    label: "mobile view",
+    width: 45,
+    height: 100,
+  },
+  {
+    src: "/assets/products/live-auction-mobile-4.jpg",
+    label: "mobile view",
+    width: 45,
+    height: 100,
+  },
+];
+
 export function LiveAuctionCarousel() {
+  const [i, setI] = useState(0);
+  const prev = () =>
+    setI((v) => (v - 1 + liveAuctionSlides.length) % liveAuctionSlides.length);
+  const next = () => setI((v) => (v + 1) % liveAuctionSlides.length);
+  const active = liveAuctionSlides[i];
+
   return (
     <section className="border-b border-muted/60 px-6 py-14 md:py-20">
       <p className="font-mono mb-8 text-center text-xs uppercase tracking-[0.2em] text-muted">
-        Desktop view
+        {active.label}
       </p>
-      <div className="mx-auto w-full max-w-3xl overflow-hidden rounded-2xl border-2 border-black bg-white shadow-[-10px_12px_0_0_#000]">
+      <div className="mx-auto flex justify-center">
         <Image
-          src="/assets/products/live-auction-desktop.jpg"
-          alt="Basta live auction room, desktop view"
-          width={947}
-          height={612}
+          key={active.src}
+          src={active.src}
+          alt={`Basta live auction room, ${active.label}`}
+          width={active.width}
+          height={active.height}
           sizes="(min-width: 768px) 768px, 100vw"
-          className="h-auto w-full"
+          className="h-auto w-full max-w-3xl"
         />
+      </div>
+      <div className="mt-6 flex items-center justify-center gap-4">
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          className="transition-opacity hover:opacity-60"
+        >
+          <ArrowLeft className="size-6" strokeWidth={1.75} />
+        </button>
+        <span className="text-sm text-dark/95">
+          {i + 1} / {liveAuctionSlides.length}
+        </span>
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="transition-opacity hover:opacity-60"
+        >
+          <ArrowRight className="size-6" strokeWidth={1.75} />
+        </button>
       </div>
     </section>
   );
